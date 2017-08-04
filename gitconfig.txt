@@ -11,3 +11,9 @@
 [remote "origin"]
 	url = https://github.com/ifly53e/sparta1.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
+
+git init
+git remote add origin https://github.com/ifly53e/sparta1.git
+git add .
+git commit -m "Initial commit"
+git push -u origin master
