@@ -1,0 +1,9 @@
+
+Starting Nmap 7.50 ( https://nmap.org ) at 2017-08-03 13:02 EDT
+Nmap scan report for 192.168.18.128
+Host is up (0.00035s latency).
+
+PORT     STATE SERVICE
+3128/tcp open  squid-http
+
+Nmap done: 1 IP address (1 host up) scanned in 0.56 seconds

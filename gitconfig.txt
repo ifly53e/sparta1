@@ -1,0 +1,13 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+
+[user]
+	name = ifly53e
+	email = ifly53e@gmail.com
+
+[remote "origin"]
+	url = https://github.com/ifly53e/sparta1.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
