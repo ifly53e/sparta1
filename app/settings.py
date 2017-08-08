@@ -47,7 +47,7 @@ class AppSettings():
 		self.actions.setValue('max-fast-processes', '10')
 		self.actions.setValue('max-slow-processes', '10')
 		self.actions.endGroup()
-		
+
 		self.actions.beginGroup('BruteSettings')
 		self.actions.setValue('store-cleartext-passwords-on-exit','True')
 		self.actions.setValue('username-wordlist-path','/usr/share/wordlists/')
@@ -56,7 +56,7 @@ class AppSettings():
 		self.actions.setValue('default-password','password')
 		self.actions.setValue('services', "asterisk,afp,cisco,cisco-enable,cvs,firebird,ftp,ftps,http-head,http-get,https-head,https-get,http-get-form,http-post-form,https-get-form,https-post-form,http-proxy,http-proxy-urlenum,icq,imap,imaps,irc,ldap2,ldap2s,ldap3,ldap3s,ldap3-crammd5,ldap3-crammd5s,ldap3-digestmd5,ldap3-digestmd5s,mssql,mysql,ncp,nntp,oracle-listener,oracle-sid,pcanywhere,pcnfs,pop3,pop3s,postgres,rdp,rexec,rlogin,rsh,s7-300,sip,smb,smtp,smtps,smtp-enum,snmp,socks5,ssh,sshkey,svn,teamspeak,telnet,telnets,vmauthd,vnc,xmpp")
 		self.actions.setValue('no-username-services', "cisco,cisco-enable,oracle-listener,s7-300,snmp,vnc")
-		self.actions.setValue('no-password-services', "oracle-sid,rsh,smtp-enum")		
+		self.actions.setValue('no-password-services', "oracle-sid,rsh,smtp-enum")
 		self.actions.endGroup()
 
 		self.actions.beginGroup('StagedNmapSettings')
@@ -86,11 +86,11 @@ class AppSettings():
 		self.actions.beginGroup('PortActions')
 		self.actions.setValue("banner", ["Grab banner", "bash -c \"echo \"\" | nc -v -n -w1 [IP] [PORT]\"", ""])
 		self.actions.setValue("nmap", ["Run nmap (scripts) on port", "nmap -Pn -sV -sC -vvvvv -p[PORT] [IP] -oA [OUTPUT]", ""])
-		self.actions.setValue("nikto", ["Run nikto", "nikto -o \"[OUTPUT].txt\" -p [PORT] -h [IP]", "http,https,ssl,soap,http-proxy,http-alt"])		
+		self.actions.setValue("nikto", ["Run nikto", "nikto -o \"[OUTPUT].txt\" -p [PORT] -h [IP]", "http,https,ssl,soap,http-proxy,http-alt"])
 		self.actions.setValue("dirbuster", ["Launch dirbuster", "java -Xmx256M -jar /usr/share/dirbuster/DirBuster-1.0-RC1.jar -u http://[IP]:[PORT]/", "http,https,ssl,soap,http-proxy,http-alt"])
 		self.actions.setValue("webslayer", ["Launch webslayer", "webslayer", "http,https,ssl,soap,http-proxy,http-alt"])
-		self.actions.setValue("whatweb", ["Run whatweb", "whatweb [IP]:[PORT] --color=never --log-brief=\"[OUTPUT].txt\"", "http,https,ssl,soap,http-proxy,http-alt"])		
-		
+		self.actions.setValue("whatweb", ["Run whatweb", "whatweb [IP]:[PORT] --color=never --log-brief=\"[OUTPUT].txt\"", "http,https,ssl,soap,http-proxy,http-alt"])
+
 		### SMB
 		self.actions.setValue("samrdump", ["Run samrdump", "python /usr/share/doc/python-impacket-doc/examples/samrdump.py [IP] [PORT]/SMB", "netbios-ssn,microsoft-ds"])
 		self.actions.setValue("nbtscan", ["Run nbtscan", "nbtscan -v -h [IP]", "netbios-ns"])
@@ -98,16 +98,16 @@ class AppSettings():
 		self.actions.setValue("enum4linux", ["Run enum4linux", "enum4linux [IP]", "netbios-ssn,microsoft-ds"])
 		self.actions.setValue("polenum", ["Extract password policy (polenum)", "polenum [IP]", "netbios-ssn,microsoft-ds"])
 		self.actions.setValue("smb-enum-users", ["Enumerate users (nmap)", "nmap -p[PORT] --script=smb-enum-users [IP] -vvvvv", "netbios-ssn,microsoft-ds"])
-		self.actions.setValue("smb-enum-users-rpc", ["Enumerate users (rpcclient)", "bash -c \"echo 'enumdomusers' | rpcclient [IP] -U%\"", "netbios-ssn,microsoft-ds"])		
+		self.actions.setValue("smb-enum-users-rpc", ["Enumerate users (rpcclient)", "bash -c \"echo 'enumdomusers' | rpcclient [IP] -U%\"", "netbios-ssn,microsoft-ds"])
 		self.actions.setValue("smb-enum-admins", ["Enumerate domain admins (net)", "net rpc group members \"Domain Admins\" -I [IP] -U% ", "netbios-ssn,microsoft-ds"])
 		self.actions.setValue("smb-enum-groups", ["Enumerate groups (nmap)", "nmap -p[PORT] --script=smb-enum-groups [IP] -vvvvv", "netbios-ssn,microsoft-ds"])
-		self.actions.setValue("smb-enum-shares", ["Enumerate shares (nmap)", "nmap -p[PORT] --script=smb-enum-shares [IP] -vvvvv", "netbios-ssn,microsoft-ds"])		
+		self.actions.setValue("smb-enum-shares", ["Enumerate shares (nmap)", "nmap -p[PORT] --script=smb-enum-shares [IP] -vvvvv", "netbios-ssn,microsoft-ds"])
 		self.actions.setValue("smb-enum-sessions", ["Enumerate logged in users (nmap)", "nmap -p[PORT] --script=smb-enum-sessions [IP] -vvvvv", "netbios-ssn,microsoft-ds"])
 		self.actions.setValue("smb-enum-policies", ["Extract password policy (nmap)", "nmap -p[PORT] --script=smb-enum-domains [IP] -vvvvv", "netbios-ssn,microsoft-ds"])
 		self.actions.setValue("smb-null-sessions", ["Check for null sessions (rpcclient)", "bash -c \"echo 'srvinfo' | rpcclient [IP] -U%\"", "netbios-ssn,microsoft-ds"])
 		###
 
-		self.actions.setValue("ldapsearch", ["Run ldapsearch", "ldapsearch -h [IP] -p [PORT] -x -s base", "ldap"])		
+		self.actions.setValue("ldapsearch", ["Run ldapsearch", "ldapsearch -h [IP] -p [PORT] -x -s base", "ldap"])
 		self.actions.setValue("snmpcheck", ["Run snmpcheck", "snmpcheck -t [IP]", "snmp,snmptrap"])
 		self.actions.setValue("rpcinfo", ["Run rpcinfo", "rpcinfo -p [IP]", "rpcbind"])
 		self.actions.setValue("rdp-sec-check", ["Run rdp-sec-check.pl", "perl ./scripts/rdp-sec-check.pl [IP]:[PORT]", "ms-wbt-server"])
@@ -120,13 +120,13 @@ class AppSettings():
 		self.actions.setValue("finger", ["Enumerate users (finger)", "./scripts/fingertool.sh [IP]", "finger"])
 
 		self.actions.setValue("smtp-enum-vrfy", ["Enumerate SMTP users (VRFY)", "smtp-user-enum -M VRFY -U /usr/share/metasploit-framework/data/wordlists/unix_users.txt -t [IP] -p [PORT]", "smtp"])
-		self.actions.setValue("smtp-enum-expn", ["Enumerate SMTP users (EXPN)", "smtp-user-enum -M EXPN -U /usr/share/metasploit-framework/data/wordlists/unix_users.txt -t [IP] -p [PORT]", "smtp"])		
+		self.actions.setValue("smtp-enum-expn", ["Enumerate SMTP users (EXPN)", "smtp-user-enum -M EXPN -U /usr/share/metasploit-framework/data/wordlists/unix_users.txt -t [IP] -p [PORT]", "smtp"])
 		self.actions.setValue("smtp-enum-rcpt", ["Enumerate SMTP users (RCPT)", "smtp-user-enum -M RCPT -U /usr/share/metasploit-framework/data/wordlists/unix_users.txt -t [IP] -p [PORT]", "smtp"])
 
 		self.actions.setValue("ftp-default", ["Check for default ftp credentials", "hydra -s [PORT] -C ./wordlists/ftp-default-userpass.txt -u -o \"[OUTPUT].txt\" -f [IP] ftp", "ftp"])
 		self.actions.setValue("mssql-default", ["Check for default mssql credentials", "hydra -s [PORT] -C ./wordlists/mssql-default-userpass.txt -u -o \"[OUTPUT].txt\" -f [IP] mssql", "ms-sql-s"])
 		self.actions.setValue("mysql-default", ["Check for default mysql credentials", "hydra -s [PORT] -C ./wordlists/mysql-default-userpass.txt -u -o \"[OUTPUT].txt\" -f [IP] mysql", "mysql"])
-		self.actions.setValue("oracle-default", ["Check for default oracle credentials", "hydra -s [PORT] -C ./wordlists/oracle-default-userpass.txt -u -o \"[OUTPUT].txt\" -f [IP] oracle-listener", "oracle-tns"])		
+		self.actions.setValue("oracle-default", ["Check for default oracle credentials", "hydra -s [PORT] -C ./wordlists/oracle-default-userpass.txt -u -o \"[OUTPUT].txt\" -f [IP] oracle-listener", "oracle-tns"])
 		self.actions.setValue("postgres-default", ["Check for default postgres credentials", "hydra -s [PORT] -C ./wordlists/postgres-default-userpass.txt -u -o \"[OUTPUT].txt\" -f [IP] postgres", "postgresql"])
 		#self.actions.setValue("snmp-default", ["Check for default community strings", "onesixtyone -c /usr/share/doc/onesixtyone/dict.txt [IP]", "snmp,snmptrap"])
 		#self.actions.setValue("snmp-default", ["Check for default community strings", "python ./scripts/snmpbrute.py.old -t [IP] -p [PORT] -f ./wordlists/snmp-default.txt", "snmp,snmptrap"])
@@ -172,11 +172,11 @@ class AppSettings():
 		self.actions.setValue("oracle-default",["oracle-tns","tcp"])
 
 		self.actions.endGroup()
-		
+
 		self.actions.sync()
 
 	# NOTE: the weird order of elements in the functions below is due to historical reasons. Change this some day.
-	
+
 	def getGeneralSettings(self):
 		settings = dict()
 		self.actions.beginGroup('GeneralSettings')
@@ -185,7 +185,7 @@ class AppSettings():
 			settings.update({str(k):str(self.actions.value(k).toString())})
 		self.actions.endGroup()
 		return settings
-		
+
 	def getBruteSettings(self):
 		settings = dict()
 		self.actions.beginGroup('BruteSettings')
@@ -212,34 +212,38 @@ class AppSettings():
 			settings.update({str(k):str(self.actions.value(k).toString())})
 		self.actions.endGroup()
 		return settings
-	
-	# this function fetches all the host actions from the settings file	
+
+	# this function fetches all the host actions from the settings file
 	def getHostActions(self):
 		hostactions = []
 		sortArray = []
 		self.actions.beginGroup('HostActions')
 		keys = self.actions.childKeys()
 		for k in keys:
+			#print ([self.actions.value(k).toList()[0].toString(), str(k), self.actions.value(k).toList()[1].toString()])
 			hostactions.append([self.actions.value(k).toList()[0].toString(), str(k), self.actions.value(k).toList()[1].toString()])
 			sortArray.append(self.actions.value(k).toList()[0].toString())
 		self.actions.endGroup()
 		sortArrayWithArray(sortArray, hostactions)						# sort by label so that it appears nicely in the context menu
 		return hostactions
 
-	# this function fetches all the port actions from the settings file	
+	# this function fetches all the port actions from the settings file
 	def getPortActions(self):
 		portactions = []
 		sortArray = []
 		self.actions.beginGroup('PortActions')
 		keys = self.actions.childKeys()
 		for k in keys:
+			#print (self.actions.value(k).toList()[0].toString())
+			#print (self.actions.value(k).toList()[1].toString())
+			#print (self.actions.value(k).toList()[2].toString())
 			portactions.append([self.actions.value(k).toList()[0].toString(), str(k), self.actions.value(k).toList()[1].toString(), self.actions.value(k).toList()[2].toString()])
 			sortArray.append(self.actions.value(k).toList()[0].toString())
-		self.actions.endGroup()				
-		sortArrayWithArray(sortArray, portactions)						# sort by label so that it appears nicely in the context menu		
+		self.actions.endGroup()
+		sortArrayWithArray(sortArray, portactions)						# sort by label so that it appears nicely in the context menu
 		return portactions
 
-	# this function fetches all the port actions that will be run as terminal commands from the settings file	
+	# this function fetches all the port actions that will be run as terminal commands from the settings file
 	def getPortTerminalActions(self):
 		portactions = []
 		sortArray = []
@@ -269,11 +273,11 @@ class AppSettings():
 			settings.update({str(k):str(self.actions.value(k).toString())})
 		self.actions.endGroup()
 		return settings
-		
+
 	def backupAndSave(self, newSettings):
 		# Backup and save
 		print '[+] Backing up old settings and saving new settings..'
-		os.rename('./sparta.conf', './'+getTimestamp()+'-sparta.conf')	
+		os.rename('./sparta.conf', './'+getTimestamp()+'-sparta.conf')
 		self.actions = QtCore.QSettings('./sparta.conf', QtCore.QSettings.NativeFormat)
 
 		self.actions.beginGroup('GeneralSettings')
@@ -286,7 +290,7 @@ class AppSettings():
 		self.actions.setValue('max-fast-processes', newSettings.general_max_fast_processes)
 		self.actions.setValue('max-slow-processes', newSettings.general_max_slow_processes)
 		self.actions.endGroup()
-		
+
 		self.actions.beginGroup('BruteSettings')
 		self.actions.setValue('store-cleartext-passwords-on-exit',newSettings.brute_store_cleartext_passwords_on_exit)
 		self.actions.setValue('username-wordlist-path',newSettings.brute_username_wordlist_path)
@@ -325,7 +329,7 @@ class AppSettings():
 		for tool in newSettings.automatedAttacks:
 			self.actions.setValue(tool, newSettings.automatedAttacks[tool])
 		self.actions.endGroup()
-		
+
 		self.actions.sync()
 
 # This class first sets all the default settings and then overwrites them with the settings found in the configuration file
@@ -368,7 +372,7 @@ class Settings():
 		self.portTerminalActions = []
 		self.stagedNmapSettings = []
 		self.automatedAttacks = []
-		
+
 		# now that all defaults are set, overwrite with whatever was in the .conf file (stored in appSettings)
 		if appSettings:
 			try:
@@ -380,7 +384,7 @@ class Settings():
 				self.portActions = appSettings.getPortActions()
 				self.portTerminalActions = appSettings.getPortTerminalActions()
 				self.automatedAttacks = appSettings.getSchedulerSettings()
-		
+
 				# general
 				self.general_default_terminal = self.generalSettings['default-terminal']
 				self.general_tool_output_black_background = self.generalSettings['tool-output-black-background']
@@ -412,7 +416,7 @@ class Settings():
 				self.tools_path_hydra = self.toolSettings['hydra-path']
 				self.tools_path_cutycapt = self.toolSettings['cutycapt-path']
 				self.tools_path_texteditor = self.toolSettings['texteditor-path']
-				
+
 			except KeyError:
 				print '\t[-] Something went wrong while loading the configuration file. Falling back to default settings for some settings.'
 				print '\t[-] Go to the settings menu to fix the issues!'
